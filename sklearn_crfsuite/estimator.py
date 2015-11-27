@@ -5,11 +5,11 @@ from six.moves import zip
 from tqdm import tqdm
 import pycrfsuite
 from sklearn.metrics import accuracy_score
-from sklearn.base import BaseEstimator
 
 from sklearn_crfsuite._fileresource import FileResource
 from sklearn_crfsuite.utils import flatten
 from sklearn_crfsuite.trainer import LinePerIterationTrainer
+from sklearn_crfsuite.compat import BaseEstimator
 
 
 class CRF(BaseEstimator):
