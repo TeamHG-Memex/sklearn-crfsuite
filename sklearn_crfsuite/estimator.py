@@ -4,12 +4,12 @@ from __future__ import absolute_import
 from six.moves import zip
 from tqdm import tqdm
 import pycrfsuite
-from sklearn.metrics import accuracy_score
 
 from sklearn_crfsuite._fileresource import FileResource
 from sklearn_crfsuite.utils import flatten
 from sklearn_crfsuite.trainer import LinePerIterationTrainer
 from sklearn_crfsuite.compat import BaseEstimator
+from sklearn_crfsuite.metrics import flat_accuracy_score
 
 
 class CRF(BaseEstimator):
@@ -409,11 +409,12 @@ class CRF(BaseEstimator):
 
     def score(self, X, y):
         """
-        Return per-field accuracy score.
+        Return accuracy score computed for sequence items.
+
+        For other metrics check :mod:`sklearn_crfsuite.metrics`.
         """
-        y_pred_flat = flatten(self.predict(X))
-        y_true_flat = flatten(y)
-        return accuracy_score(y_true_flat, y_pred_flat)
+        y_pred = self.predict(X)
+        return flat_accuracy_score(y, y_pred)
 
     @property
     def tagger_(self):
