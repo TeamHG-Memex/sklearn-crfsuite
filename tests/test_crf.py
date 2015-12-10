@@ -118,3 +118,11 @@ def test_cross_validation(xseq, yseq):
     y = [yseq] * 20
     scores = cross_val_score(crf, X, y, n_jobs=5, cv=5)
     assert scores.mean() == 1.0
+
+
+def test_crf_dev_bad_arguments(xseq, yseq):
+    crf = CRF()
+    X = [xseq] * 20
+    y = [yseq] * 20
+    with pytest.raises(ValueError):
+        crf.fit(X, y, X)

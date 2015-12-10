@@ -48,5 +48,3 @@ class LinePerIterationTrainer(pycrfsuite.Trainer):
             print(table)
             print("-"*size)
         super(LinePerIterationTrainer, self).on_optimization_end(log)
-
-
