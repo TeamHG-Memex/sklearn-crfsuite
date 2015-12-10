@@ -11,3 +11,10 @@ CRF
 
 .. autoclass:: CRF()
     :members:
+
+
+sklearn_crfsuite.metrics
+------------------------
+
+.. automodule:: sklearn_crfsuite.metrics
+    :members:

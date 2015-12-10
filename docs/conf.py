@@ -47,7 +47,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-    'alabaster',
+    'sphinx.ext.mathjax',
 ]
 numpydoc_show_class_members = False
 autodoc_member_order = 'bysource'
@@ -59,9 +59,6 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 # source_suffix = ['.rst', '.md']
 source_suffix = '.rst'
-
-# The encoding of source files.
-#source_encoding = 'utf-8-sig'
 
 # The master toctree document.
 master_doc = 'index'
@@ -87,15 +84,9 @@ release = '0.1'
 # Usually you set "language" from the command line for these cases.
 language = None
 
-# There are two options for replacing |today|: either, you set today to some
-# non-false value, then it is used:
-#today = ''
-# Else, today_fmt is used as the format for a strftime call.
-#today_fmt = '%B %d, %Y'
-
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'CoNLL2002.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -130,27 +121,10 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-import alabaster
+import sphinx_rtd_theme
 
-html_theme_path = [alabaster.get_path()]
-html_theme = 'alabaster'
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        # 'relations.html',
-        'searchbox.html',
-        # 'donate.html',
-    ]
-}
-
-html_theme_options = {
-    'description': 'CRFsuite (python-crfsuite) wrapper which provides interface simlar to scikit-learn.',
-    'github_user': 'TeamHG-Memex',
-    'github_repo': 'sklearn-crfsuite',
-    'github_banner': True,
-    'github_button': False,
-}
+html_theme = "sphinx_rtd_theme"
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 
 # Add any paths that contain custom themes here, relative to this directory.
