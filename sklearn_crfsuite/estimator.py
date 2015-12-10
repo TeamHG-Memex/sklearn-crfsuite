@@ -208,31 +208,6 @@ class CRF(BaseEstimator):
         in temporary locations; the preferred way to save/load CRF models
         is to use pickle (or its alternatives like joblib).
 
-    Attributes
-    ----------
-    tagger_ : pycrfsuite.Tagger
-        python-crfsuite Tagger instance.
-
-    classes_ : list of str
-        Class labels
-
-    size_ : int
-        Size of CRF model, in bytes
-
-    num_attributes_ : int
-        Number of CRF attributes with non-zero weights
-
-    attributes_ : list of str
-        A list of active CRF attributes
-
-    state_features_ : dict
-        ``{(attr, label): coef}`` dict with state feature weights
-
-    transition_features_ : dict
-        ``{(label_from, label_to): coef}`` dict with transition
-        feature weights
-
-
     """
     def __init__(self,
                  algorithm=None,
@@ -442,7 +417,9 @@ class CRF(BaseEstimator):
 
     @property
     def tagger_(self):
-        """ pycrfsuite.Tagger instance """
+        """
+        pycrfsuite.Tagger instance.
+        """
         if self._tagger is None:
             if self.modelfile.name is None:
                 return None
@@ -455,28 +432,36 @@ class CRF(BaseEstimator):
 
     @property
     def classes_(self):
-        """ Class labels """
+        """
+        A list of class labels.
+        """
         if self.tagger_ is None:
             return None
         return self.tagger_.labels()
 
     @property
     def size_(self):
-        """ Size of the CRF model, in bytes """
+        """
+        Size of the CRF model, in bytes.
+        """
         if self._info is None:
             return None
         return int(self._info.header['size'])
 
     @property
     def num_attributes_(self):
-        """ Number of non-zero attributes """
+        """
+        Number of non-zero CRF attributes.
+        """
         if self._info is None:
             return None
         return int(self._info.header['num_attrs'])
 
     @property
     def attributes_(self):
-        """ A list of known attributes """
+        """
+        A list of known attributes.
+        """
         if self._info is None:
             return None
 

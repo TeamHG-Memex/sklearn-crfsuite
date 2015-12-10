@@ -9,6 +9,5 @@ CRF
 .. automodule:: sklearn_crfsuite
     :members:
 
-.. autoclass:: CRF
+.. autoclass:: CRF()
     :members:
-
