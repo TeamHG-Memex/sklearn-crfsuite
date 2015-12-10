@@ -52,7 +52,7 @@ def test_crf_marginals(xseq, yseq, algorithm):
     marginals = y_pred_marginals[0]
     assert len(marginals) == len(yseq)
 
-    labels = crf.tagger.labels()
+    labels = crf.tagger_.labels()
     for m in marginals:
         assert isinstance(m, dict)
         assert set(m.keys()) == set(labels)

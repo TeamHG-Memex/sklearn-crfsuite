@@ -210,7 +210,7 @@ class CRF(BaseEstimator):
 
     Attributes
     ----------
-    tagger : pycrfsuite.Tagger
+    tagger_ : pycrfsuite.Tagger
         python-crfsuite Tagger instance.
 
     """
@@ -278,11 +278,10 @@ class CRF(BaseEstimator):
             prefix="model"
         )
         self.verbose = verbose
-        self._tagger = None
         self.trainer_cls = trainer_cls
-
         self.training_log_ = None
 
+        self._tagger = None
     def fit(self, X, y, X_dev=None, y_dev=None):
         """
         Train a model.
@@ -369,7 +368,7 @@ class CRF(BaseEstimator):
             predicted labels
 
         """
-        return self.tagger.tag(xseq)
+        return self.tagger_.tag(xseq)
 
     def predict_marginals(self, X):
         """
@@ -403,10 +402,10 @@ class CRF(BaseEstimator):
             predicted probabilities for each label at each position
 
         """
-        labels = self.tagger.labels()
-        self.tagger.set(xseq)
+        labels = self.tagger_.labels()
+        self.tagger_.set(xseq)
         return [
-            {label: self.tagger.marginal(label, i) for label in labels}
+            {label: self.tagger_.marginal(label, i) for label in labels}
             for i in range(len(xseq))
         ]
 
@@ -419,10 +418,11 @@ class CRF(BaseEstimator):
         return accuracy_score(y_true_flat, y_pred_flat)
 
     @property
-    def tagger(self):
+    def tagger_(self):
+        """ pycrfsuite.Tagger instance """
         if self._tagger is None:
             if self.modelfile.name is None:
-                raise Exception("Can't load model. Is the model trained?")
+                return None
 
             tagger = pycrfsuite.Tagger()
             tagger.open(self.modelfile.name)
