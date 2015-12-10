@@ -213,6 +213,26 @@ class CRF(BaseEstimator):
     tagger_ : pycrfsuite.Tagger
         python-crfsuite Tagger instance.
 
+    classes_ : list of str
+        Class labels
+
+    size_ : int
+        Size of CRF model, in bytes
+
+    num_attributes_ : int
+        Number of CRF attributes with non-zero weights
+
+    attributes_ : list of str
+        A list of active CRF attributes
+
+    state_features_ : dict
+        ``{(attr, label): coef}`` dict with state feature weights
+
+    transition_features_ : dict
+        ``{(label_from, label_to): coef}`` dict with transition
+        feature weights
+
+
     """
     def __init__(self,
                  algorithm=None,
@@ -282,6 +302,8 @@ class CRF(BaseEstimator):
         self.training_log_ = None
 
         self._tagger = None
+        self._info_cached = None
+
     def fit(self, X, y, X_dev=None, y_dev=None):
         """
         Train a model.
@@ -306,6 +328,7 @@ class CRF(BaseEstimator):
         if self._tagger is not None:
             self._tagger.close()
             self._tagger = None
+            self._info_cached = None
         self.modelfile.refresh()
 
         trainer = self._get_trainer()
@@ -427,7 +450,69 @@ class CRF(BaseEstimator):
             tagger = pycrfsuite.Tagger()
             tagger.open(self.modelfile.name)
             self._tagger = tagger
+            self._info_cached = None
         return self._tagger
+
+    @property
+    def classes_(self):
+        """ Class labels """
+        if self.tagger_ is None:
+            return None
+        return self.tagger_.labels()
+
+    @property
+    def size_(self):
+        """ Size of the CRF model, in bytes """
+        if self._info is None:
+            return None
+        return int(self._info.header['size'])
+
+    @property
+    def num_attributes_(self):
+        """ Number of non-zero attributes """
+        if self._info is None:
+            return None
+        return int(self._info.header['num_attrs'])
+
+    @property
+    def attributes_(self):
+        """ A list of known attributes """
+        if self._info is None:
+            return None
+
+        attrs = [None for _ in range(self.num_attributes_)]
+        for name, value in self._info.attributes.items():
+            attrs[int(value)] = name
+
+        return attrs
+
+    @property
+    def state_features_(self):
+        """
+        Dict with state feature coefficients:
+        ``{(attr_name, label): coef}``
+        """
+        if self._info is None:
+            return None
+        return self._info.state_features
+
+    @property
+    def transition_features_(self):
+        """
+        Dict with transition feature coefficients:
+        ``{(label_from, label_to): coef}``
+        """
+        if self._info is None:
+            return None
+        return self._info.transitions
+
+    @property
+    def _info(self):
+        if self.tagger_ is None:
+            return None
+        if self._info_cached is None:
+            self._info_cached = self.tagger_.info()
+        return self._info_cached
 
     def _get_trainer(self):
         trainer_cls = self.trainer_cls or LinePerIterationTrainer
@@ -466,4 +551,5 @@ class CRF(BaseEstimator):
     def __getstate__(self):
         dct = self.__dict__.copy()
         dct['_tagger'] = None
+        dct['_info_cached'] = None
         return dct

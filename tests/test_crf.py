@@ -126,3 +126,39 @@ def test_crf_dev_bad_arguments(xseq, yseq):
     y = [yseq] * 20
     with pytest.raises(ValueError):
         crf.fit(X, y, X)
+
+
+def test_attributes(xseq, yseq):
+    crf = CRF()
+    assert crf.tagger_ is None
+    assert crf.size_ is None
+    assert crf.classes_ is None
+    assert crf.num_attributes_ is None
+    assert crf.attributes_ is None
+    assert crf.state_features_ is None
+    assert crf.transition_features_ is None
+
+    crf.fit([xseq]*20, [yseq]*20)
+
+    assert crf.tagger_ is not None
+    assert crf.size_ > 1000
+    assert set(crf.classes_) == {'sunny', 'rainy'}
+
+    assert crf.num_attributes_ > 0
+    assert len(crf.attributes_) == crf.num_attributes_
+    assert all(crf.attributes_)
+    assert 'clean' in crf.attributes_
+
+    assert len(crf.state_features_) > 0
+    assert all(isinstance(c, float) for c in crf.state_features_.values())
+    assert all(
+        attr in crf.attributes_ and label in crf.classes_
+        for (attr, label) in crf.state_features_.keys()
+    ), crf.state_features_
+
+    assert len(crf.transition_features_) > 0
+    assert all(isinstance(c, float) for c in crf.transition_features_.values())
+    assert all(
+        label_from in crf.classes_ and label_to in crf.classes_
+        for (label_from, label_to) in crf.transition_features_.keys()
+    ), crf.transition_features_
