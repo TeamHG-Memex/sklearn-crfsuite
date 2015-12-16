@@ -17,6 +17,7 @@ class FileResource(object):
         self.keep_tempfiles = keep_tempfiles
         self.suffix = suffix
         self.prefix = prefix
+        self._unlink = os.unlink  # make __del__ more robust
 
     def ensure_name(self):
         """ Ensure that a filename is available """
@@ -34,7 +35,7 @@ class FileResource(object):
 
         if self.name is not None:
             try:
-                os.unlink(self.name)
+                self._unlink(self.name)
             except OSError:
                 pass
             self.name = None
