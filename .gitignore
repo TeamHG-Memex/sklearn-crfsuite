@@ -7,7 +7,7 @@ dist
 .idea
 .ipynb_checkpoints
 htmlcov
-.coverage
+.coverage*
 .joblib
 .cache
 __pycache__
