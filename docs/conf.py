@@ -23,7 +23,6 @@ import shlex
 sys.path.insert(0, os.path.abspath('..'))
 
 
-import sys
 from unittest.mock import MagicMock
 
 class Mock(MagicMock):
