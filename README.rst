@@ -21,11 +21,13 @@ sklearn-crfsuite
 sklearn-crfsuite is a thin CRFsuite_ (python-crfsuite_) wrapper which provides
 interface simlar to scikit-learn_. ``sklearn_crfsuite.CRF`` is a scikit-learn
 compatible estimator: you can use e.g. scikit-learn model
-selection utilities (cross-validation, hyperparameter optimization) with it.
+selection utilities (cross-validation, hyperparameter optimization) with it,
+or save/load CRF models using joblib_.
 
 .. _CRFsuite: http://www.chokkan.org/software/crfsuite/
 .. _python-crfsuite: https://github.com/tpeng/python-crfsuite
 .. _scikit-learn: http://scikit-learn.org/
+.. _joblib: https://github.com/joblib/joblib
 
 License is MIT.
 
