@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.3 (2015-12-17)
+----------------
+
+* Added ``sklearn_crfsuite.metrics.sequence_accuracy_score()`` function and
+  related ``sklearn_crfsuite.scorers.sequence_accuracy``;
+* ``FileResource.__del__`` method made more robust.
+
 0.2 (2015-12-11)
 ----------------
 
