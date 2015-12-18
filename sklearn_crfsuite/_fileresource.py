@@ -46,7 +46,7 @@ class FileResource(object):
     def __del__(self):
         try:
             self.cleanup()
-        except AttributeError:
+        except Exception:
             pass
 
     def __getstate__(self):
