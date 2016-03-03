@@ -25,6 +25,14 @@ def flat_accuracy_score(y_true, y_pred):
 
 
 @_flattens_y
+def flat_precision_score(y_true, y_pred, **kwargs):
+    """
+    Return precision score for sequence items.
+    """
+    return _metrics.precision_score(y_true, y_pred, **kwargs)
+
+
+@_flattens_y
 def flat_f1_score(y_true, y_pred, **kwargs):
     """
     Return F1 score for sequence items.
@@ -61,4 +69,3 @@ def sequence_accuracy_score(y_true, y_pred):
                   if yseq_true == yseq_pred)
 
     return matches / total
-
