@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.3.3 (2016-03-15)
+------------------
+
+* scikit-learn dependency is now optional for sklearn_crfsuite;
+  it is required only when you use metrics and scorers;
+* added ``metrics.flat_precision_score``.
+
 0.3.2 (2015-12-18)
 ------------------
 
