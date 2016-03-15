@@ -6,10 +6,8 @@ from tqdm import tqdm
 import pycrfsuite
 
 from sklearn_crfsuite._fileresource import FileResource
-from sklearn_crfsuite.utils import flatten
 from sklearn_crfsuite.trainer import LinePerIterationTrainer
 from sklearn_crfsuite.compat import BaseEstimator
-from sklearn_crfsuite.metrics import flat_accuracy_score
 
 
 class CRF(BaseEstimator):
@@ -413,6 +411,7 @@ class CRF(BaseEstimator):
 
         For other metrics check :mod:`sklearn_crfsuite.metrics`.
         """
+        from sklearn_crfsuite.metrics import flat_accuracy_score
         y_pred = self.predict(X)
         return flat_accuracy_score(y, y_pred)
 
