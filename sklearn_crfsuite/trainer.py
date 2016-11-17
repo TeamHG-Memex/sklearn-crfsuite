@@ -41,7 +41,7 @@ class LinePerIterationTrainer(pycrfsuite.Trainer):
             ]
             table = tabulate(data,
                 headers=["Label", "Precision", "Recall", "F1", "Support"],
-                # floatfmt="0.4f",
+                floatfmt="0.3f",
             )
             size = len(table.splitlines()[0])
             print("="*size)
