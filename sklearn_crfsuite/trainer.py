@@ -23,7 +23,7 @@ class LinePerIterationTrainer(pycrfsuite.Trainer):
                 "precision={avg_precision:0.3f}  ",
                 "recall={avg_recall:0.3f}  ",
                 "F1={avg_f1:0.3f}  ",
-                "Acc(item/seq)={item_accuracy_float:0.3f} {instance_accuracy_float:0.3f}"
+                "Acc(item/seq)={item_accuracy_float:0.3f} {instance_accuracy_float:0.3f}  "
             ]
 
         if 'feature_norm' in info:
