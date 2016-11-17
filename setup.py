@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='sklearn-crfsuite',
-    version='0.3.3',
+    version='0.3.4',
     author='Mikhail Korobov',
     author_email='kmike84@gmail.com',
     license='MIT license',
