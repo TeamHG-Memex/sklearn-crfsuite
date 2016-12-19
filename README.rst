@@ -25,7 +25,7 @@ selection utilities (cross-validation, hyperparameter optimization) with it,
 or save/load CRF models using joblib_.
 
 .. _CRFsuite: http://www.chokkan.org/software/crfsuite/
-.. _python-crfsuite: https://github.com/tpeng/python-crfsuite
+.. _python-crfsuite: https://github.com/scrapinghub/python-crfsuite
 .. _scikit-learn: http://scikit-learn.org/
 .. _joblib: https://github.com/joblib/joblib
 
