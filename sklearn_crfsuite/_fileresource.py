@@ -34,8 +34,8 @@ class FileResource(object):
 
         if self.name is not None:
             try:
-                os.unlink(self.name)
                 os.close(self.fd)
+                os.unlink(self.name)
             except OSError:
                 pass
             self.name = None
