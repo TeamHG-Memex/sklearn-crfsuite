@@ -1,6 +1,12 @@
 Changes
 =======
 
+0.3.5 (2017-03-21)
+------------------
+
+* Properly close file descriptor in ``FileResource.cleanup``;
+* declare Python 3.6 support, stop testing on Python 3.3.
+
 0.3.4 (2016-11-17)
 ------------------
 
