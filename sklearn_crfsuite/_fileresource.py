@@ -23,7 +23,7 @@ class FileResource(object):
         if self.name is not None:
             return
         if self.auto:
-            fd, self.name = tempfile.mkstemp(self.suffix, self.prefix)
+            self.fd, self.name = tempfile.mkstemp(self.suffix, self.prefix)
         else:
             raise ValueError("File name is not provided")
 
@@ -34,6 +34,7 @@ class FileResource(object):
 
         if self.name is not None:
             try:
+                os.close(self.fd)
                 os.unlink(self.name)
             except OSError:
                 pass
