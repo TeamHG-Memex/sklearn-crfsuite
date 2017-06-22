@@ -7,15 +7,15 @@ sklearn-crfsuite
    :alt: PyPI Version
 
 .. image:: https://img.shields.io/travis/TeamHG-Memex/sklearn-crfsuite/master.svg
-   :target: http://travis-ci.org/TeamHG-Memex/sklearn-crfsuite
+   :target: https://travis-ci.org/TeamHG-Memex/sklearn-crfsuite
    :alt: Build Status
 
-.. image:: http://codecov.io/github/TeamHG-Memex/sklearn-crfsuite/coverage.svg?branch=master
-   :target: http://codecov.io/github/TeamHG-Memex/sklearn-crfsuite?branch=master
+.. image:: https://codecov.io/github/TeamHG-Memex/sklearn-crfsuite/coverage.svg?branch=master
+   :target: https://codecov.io/github/TeamHG-Memex/sklearn-crfsuite?branch=master
    :alt: Code Coverage
 
 .. image:: https://readthedocs.org/projects/sklearn-crfsuite/badge/?version=latest
-   :target: http://sklearn-crfsuite.readthedocs.org/en/latest/?badge=latest
+   :target: https://sklearn-crfsuite.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation
 
 sklearn-crfsuite is thin a CRFsuite_ (python-crfsuite_) wrapper which provides
