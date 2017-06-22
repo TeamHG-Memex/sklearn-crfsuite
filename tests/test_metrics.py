@@ -20,6 +20,11 @@ def test_flat_precision():
     assert score == 3 / 5
 
 
+def test_flat_recall():
+    score = metrics.flat_recall_score(y1, y2, average='micro')
+    assert score == 3 / 5
+
+
 def test_flat_fscore():
     score = metrics.flat_f1_score(y1, y2, average='macro')
     assert score == 2 / 3

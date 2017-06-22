@@ -33,6 +33,15 @@ def flat_precision_score(y_true, y_pred, **kwargs):
 
 
 @_flattens_y
+def flat_recall_score(y_true, y_pred, **kwargs):
+    """
+    Return recall score for sequence items.
+    """
+    from sklearn import metrics
+    return metrics.recall_score(y_true, y_pred, **kwargs)
+
+
+@_flattens_y
 def flat_f1_score(y_true, y_pred, **kwargs):
     """
     Return F1 score for sequence items.
