@@ -1,6 +1,11 @@
 Changes
 =======
 
+0.3.6 (2017-06-22)
+------------------
+
+* added ``sklearn_crfsuite.metrics.flat_recall_score``.
+
 0.3.5 (2017-03-21)
 ------------------
 
