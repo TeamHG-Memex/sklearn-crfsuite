@@ -32,3 +32,9 @@ or save/load CRF models using joblib_.
 License is MIT.
 
 Documentation can be found `here <https://sklearn-crfsuite.readthedocs.io>`_.
+
+----
+
+.. image:: https://hyperiongray.s3.amazonaws.com/define-hg.svg
+	:target: https://hyperiongray.com/?pk_campaign=github&pk_kwd=sklearn-crfsuite
+	:alt: define hyperiongray
