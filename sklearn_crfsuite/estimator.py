@@ -307,7 +307,7 @@ class CRF(BaseEstimator):
         trainer = self._get_trainer()
         train_data = zip(X, y)
 
-        if self.verbose:
+        if self.verbose and "len" in dir(X):
             train_data = tqdm(train_data, "loading training data to CRFsuite", len(X), leave=True)
 
         for xseq, yseq in train_data:
