@@ -18,7 +18,7 @@ sklearn-crfsuite
    :target: https://sklearn-crfsuite.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation
 
-sklearn-crfsuite is thin a CRFsuite_ (python-crfsuite_) wrapper which provides
+sklearn-crfsuite is a thin CRFsuite_ (python-crfsuite_) wrapper which provides
 scikit-learn_-compatible :class:`sklearn_crfsuite.CRF` estimator:
 you can use e.g. scikit-learn model selection utilities
 (cross-validation, hyperparameter optimization) with it, or save/load CRF
