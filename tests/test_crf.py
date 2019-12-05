@@ -3,7 +3,7 @@ import os
 import pickle
 
 import pytest
-from sklearn.cross_validation import cross_val_score
+from sklearn.model_selection import cross_val_score
 
 from sklearn_crfsuite import CRF
 
