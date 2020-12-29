@@ -7,6 +7,5 @@ from sklearn.metrics import make_scorer
 
 from sklearn_crfsuite import metrics
 
-
 flat_accuracy = make_scorer(metrics.flat_accuracy_score)
 sequence_accuracy = make_scorer(metrics.sequence_accuracy_score)

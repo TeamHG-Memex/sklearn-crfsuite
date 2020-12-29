@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division
 from functools import wraps
 
 from sklearn_crfsuite.utils import flatten
@@ -56,7 +55,7 @@ def flat_fbeta_score(y_true, y_pred, beta, **kwargs):
     Return F-beta score for sequence items.
     """
     from sklearn import metrics
-    return metrics.fbeta_score(y_true, y_pred, beta, **kwargs)
+    return metrics.fbeta_score(y_true, y_pred, beta=beta, **kwargs)
 
 
 @_flattens_y

@@ -7,8 +7,7 @@ from sklearn.model_selection import cross_val_score
 
 from sklearn_crfsuite import CRF
 
-
-ALGORITHMS =  ["lbfgs", "l2sgd", "pa", "ap", "arow"]
+ALGORITHMS = ["lbfgs", "l2sgd", "pa", "ap", "arow"]
 
 
 @pytest.mark.parametrize("algorithm", ALGORITHMS)

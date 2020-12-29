@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-
-from six.moves import zip
-from tqdm import tqdm
 import pycrfsuite
+from sklearn.base import BaseEstimator
+from tqdm import tqdm
 
 from sklearn_crfsuite._fileresource import FileResource
 from sklearn_crfsuite.trainer import LinePerIterationTrainer
-from sklearn_crfsuite.compat import BaseEstimator
 
 
 class CRF(BaseEstimator):
@@ -264,14 +261,17 @@ class CRF(BaseEstimator):
         self.variance = variance
         self.gamma = gamma
 
+        self.verbose = verbose
+        self.model_filename = model_filename
+        self.keep_tempfiles = keep_tempfiles
+        self.trainer_cls = trainer_cls
+
         self.modelfile = FileResource(
             filename=model_filename,
             keep_tempfiles=keep_tempfiles,
             suffix=".crfsuite",
             prefix="model"
         )
-        self.verbose = verbose
-        self.trainer_cls = trainer_cls
         self.training_log_ = None
 
         self._tagger = None

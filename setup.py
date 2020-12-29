@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='sklearn-crfsuite',
-    version='0.3.6',
+    version='0.3.7',
     author='Mikhail Korobov',
     author_email='kmike84@gmail.com',
     license='MIT license',
@@ -12,11 +12,12 @@ setup(
     url='https://github.com/TeamHG-Memex/sklearn-crfsuite',
     zip_safe=False,
     packages=['sklearn_crfsuite'],
+    python_requires='>=3.6',
     install_requires=[
-        "tqdm >= 2.0",
-        "six",
-        "tabulate",
-        "python-crfsuite >= 0.8.3"
+        "python-crfsuite >= 0.9.6",
+        "scikit-learn >= 0.20",
+        "tabulate >= 0.8.3",
+        "tqdm >= 4.29.0",
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -24,11 +25,10 @@ setup(
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
 )
