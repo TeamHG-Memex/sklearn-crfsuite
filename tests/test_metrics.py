@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, division
-
 import pytest
 
 from sklearn_crfsuite import metrics
-
 
 y1 = [["x", "z", "y"], ["x", "x"]]
 y2 = [["y", "z", "y"], ["x", "y"]]

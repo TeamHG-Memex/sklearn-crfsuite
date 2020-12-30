@@ -1,6 +1,12 @@
 Changes
 =======
 
+0.3.7 (2020-12-29)
+------------------
+
+* declare Python 3.7, 3.8 and 3.9 support.
+* drop support for Python < 3.6.
+
 0.3.6 (2017-06-22)
 ------------------
 
