@@ -65,7 +65,7 @@ def flat_classification_report(y_true, y_pred, labels=None, **kwargs):
     Return classification report for sequence items.
     """
     from sklearn import metrics
-    return metrics.classification_report(y_true, y_pred, labels, **kwargs)
+    return metrics.classification_report(y_true, y_pred, labels=labels, **kwargs)
 
 
 def sequence_accuracy_score(y_true, y_pred):
