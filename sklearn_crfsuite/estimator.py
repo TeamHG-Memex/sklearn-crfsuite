@@ -263,7 +263,9 @@ class CRF(BaseEstimator):
         self.averaging = averaging
         self.variance = variance
         self.gamma = gamma
-
+        # 09/25/2023 HarryCaveMan add model_filename and keep_tempfiles attr to `self` to comply with sklearn clone api
+        self.model_filename = model_filename
+        self.keep_tempfiles = keep_tempfiles
         self.modelfile = FileResource(
             filename=model_filename,
             keep_tempfiles=keep_tempfiles,
