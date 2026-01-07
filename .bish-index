@@ -1,0 +1,15 @@
+./setup.py
+./AGENTS.md
+./tests/conftest.py
+./tests/test_crf.py
+./tests/test_metrics.py
+./docs/conf.py
+./docs/_update_tutorial.sh
+./sklearn_crfsuite/trainer.py
+./sklearn_crfsuite/utils.py
+./sklearn_crfsuite/_fileresource.py
+./sklearn_crfsuite/__init__.py
+./sklearn_crfsuite/scorers.py
+./sklearn_crfsuite/compat.py
+./sklearn_crfsuite/metrics.py
+./sklearn_crfsuite/estimator.py
