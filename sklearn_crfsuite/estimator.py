@@ -313,7 +313,7 @@ class CRF(BaseEstimator):
         train_data = zip(X, y)
 
         if self.verbose:
-            train_data = tqdm(train_data, "loading training data to CRFsuite", len(X), leave=True)
+            train_data = tqdm(train_data, "loading training data to CRFsuite", leave=True)
 
         for xseq, yseq in train_data:
             trainer.append(xseq, yseq)
@@ -325,7 +325,7 @@ class CRF(BaseEstimator):
             test_data = zip(X_dev, y_dev)
 
             if self.verbose:
-                test_data = tqdm(test_data, "loading dev data to CRFsuite", len(X_dev), leave=True)
+                test_data = tqdm(test_data, "loading dev data to CRFsuite", leave=True)
 
             for xseq, yseq in test_data:
                 trainer.append(xseq, yseq, 1)
