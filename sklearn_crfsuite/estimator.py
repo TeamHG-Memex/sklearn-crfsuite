@@ -276,6 +276,9 @@ class CRF(BaseEstimator):
         self.trainer_cls = trainer_cls
         self.training_log_ = None
 
+        self.model_filename = model_filename
+        self.keep_tempfiles = keep_tempfiles
+
         self._tagger = None
         self._info_cached = None
 
