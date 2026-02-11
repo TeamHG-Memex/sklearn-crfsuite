@@ -56,7 +56,7 @@ def flat_fbeta_score(y_true, y_pred, beta, **kwargs):
     Return F-beta score for sequence items.
     """
     from sklearn import metrics
-    return metrics.fbeta_score(y_true, y_pred, beta, **kwargs)
+    return metrics.fbeta_score(y_true, y_pred, beta=beta, **kwargs)
 
 
 @_flattens_y
